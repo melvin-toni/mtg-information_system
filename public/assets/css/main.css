@@ -10,6 +10,47 @@
     border-radius: 50%;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    transition: color .5s;
+    color: #eaa993 !important;
+}
+
+.form_login {
+    margin-top: 100px;
+    padding: 10px 10px;
+    border-radius: 7px;
+    border: 2px solid #c7cee8;
+}
+
+.form_login,
+.form_login a {
+    color: #c7cee8;
+}
+
+.form_login h1 {
+    font-size: 2em;
+    font-weight: bold;
+    padding: 10px;
+    border-bottom: 1px solid #c7cee8;
+}
+
+.form_login i.fas {
+    font-size: 1.3em;
+}
+
+.form_login small.help_block_font {
+    color: #eaa993;
+}
+
+.form_login .footer {
+    font-size: .9em;
+}
+
 ul.main_menu {
     padding: 0;
     border-radius: 7px;
@@ -30,7 +71,6 @@ ul.main_menu > li.profile_badge {
 
 ul.main_menu > li > a:hover {
     color: #fff;
-    text-decoration: none;
     border-radius: 7px;
 }
 
