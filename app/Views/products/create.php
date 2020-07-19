@@ -8,6 +8,13 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
+    <?php elseif (esc(session()->getFlashdata('error'))) : ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?=esc(session()->getFlashdata('error'));?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
     <?php endif ?>
     <form method="post" action="add">
         <?= csrf_field() ?>
