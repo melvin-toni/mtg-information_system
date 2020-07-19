@@ -32,12 +32,13 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 // $routes->get('(:any)', 'Home::index'); //danger
-$routes->get('dependency', 'Dependency::index');
+$routes->cli('dependency', 'Dependency::index'); //must open cmd in public folder
 $routes->get('login', 'Auth::index');
 $routes->post('login/validate', 'BaseController::loginValidation');
 $routes->get('logout', 'BaseController::logOut');
 
-$routes->match(['get', 'post'], 'product/create', 'Product::create');
+$routes->get('product/create', 'Product::create');
+$routes->post('product/add', 'Product::add');
 $routes->get('product', 'Product::index');
 $routes->get('product/view/(:segment)', 'Product::view/$1');
 

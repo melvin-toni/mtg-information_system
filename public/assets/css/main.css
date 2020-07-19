@@ -16,8 +16,15 @@ a {
 
 a:hover {
     text-decoration: none;
+}
+
+a.colorize:hover {
     transition: color .5s;
     color: #eaa993 !important;
+}
+
+small.help_block_font {
+    color: #eaa993;
 }
 
 .form_login {
@@ -41,10 +48,6 @@ a:hover {
 
 .form_login i.fas {
     font-size: 1.3em;
-}
-
-.form_login small.help_block_font {
-    color: #eaa993;
 }
 
 .form_login .footer {

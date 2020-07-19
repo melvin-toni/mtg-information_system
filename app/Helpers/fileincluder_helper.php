@@ -6,10 +6,10 @@ function env_checker() {
     switch(ENVIRONMENT) {
         case 'development':
             $arr = array(
-                'JQUERY' => 'assets/js/jquery.min.js',
-                'POPPER' => 'assets/js/popper.min.js',
-                'TWBS_CSS' => 'assets/css/bootstrap.min.css',
-                'TWBS_JS' => 'assets/js/bootstrap.min.js'
+                'JQUERY' => base_url('assets/js/jquery.min.js'),
+                'POPPER' => base_url('assets/js/popper.min.js'),
+                'TWBS_CSS' => base_url('assets/css/bootstrap.min.css'),
+                'TWBS_JS' => base_url('assets/js/bootstrap.min.js')
             );
             break;
         case 'testing':

@@ -37,24 +37,59 @@ class Product extends BaseController {
 		echo view('templates/footer');
 	}
 	
-	public function create() {
-		$model = new Products();
-		$validation = $this->validate([
-			'name' => 'required|min_length[3]|max_length[255]',
-			'description' => 'required'
+	private function validateProductForm() {
+		return $this->validation->setRules([
+			'inputName' => [
+				'label' => 'Nama', 
+				'rules' => 'required|max_length[100]',
+				'errors' => [
+					'required' => '{field} wajib diisi',
+					'max_length' => 'Maksimal 100 karakter'
+				]
+			],
+			'inputDescription' => [
+				'label' => 'Deskripsi', 
+				'rules' => 'required',
+				'errors' => [
+					'required' => '{field} wajib diisi'
+				]
+			]
 		]);
+	}
 
-		if (!$validation) {
-			echo view('templates/header', ['title' => 'Create a product']);
-			echo view('products/create');
-			echo view('templates/footer');
+	public function create() {
+		if ($this->isValidUser()) {
+			$data = $this->initFileIncluded();
+			$data['title'] = 'Tambah Produk';
+
+			echo view('templates/header_menu', $data);
+			echo view('products/create', $data);
+			echo view('templates/footer', $data);
 		} else {
-			$model->save([
-				'name' => $this->request->getVar('name'),
-				'description' => $this->request->getVar('description'),
-			]);
+			return redirect()->to('/login');
+		}
+	}
 
-			echo view('templates/success');
+	public function add() {
+		$model = new Products();
+
+		$this->validateProductForm();
+
+		if ($this->validation->withRequest($this->request)->run()) {
+			
+			$data = [
+				'name' => $this->request->getPost('inputName'),
+				'description' => $this->request->getPost('inputDescription'),
+			];
+			if ($model->saveProducts($data)) {
+				session()->setFlashdata('input_success', 'Data berhasil disimpan');
+				return redirect()->to('/product');
+			} else {
+				session()->setFlashdata('input_failed', 'Data gagal disimpan');
+				return redirect()->back()->withInput();
+			}
+		} else {
+			return redirect()->back()->withInput();
 		}
 	}
 

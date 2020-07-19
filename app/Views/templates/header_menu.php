@@ -12,8 +12,8 @@
         <link rel="shortcut icon" type="image/png" href="/favicon.ico"/>
 
         <link rel="stylesheet" href="<?=esc($TWBS_CSS)?>" crossorigin="anonymous">
-        <link rel="stylesheet" href="<?=esc(CSS.'/main.css')?>" crossorigin="anonymous">
-        <link rel="stylesheet" href="<?=esc(FONTAWESOMECSS.'/all.min.css')?>">
+        <link rel="stylesheet" href="<?=esc(base_url(CSS.'/main.css'))?>" crossorigin="anonymous">
+        <link rel="stylesheet" href="<?=esc(base_url(FONTAWESOMECSS.'/all.min.css'))?>">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -44,7 +44,7 @@
                         <li class="profile_badge">
                             <div class="row">
                                 <div class="col-4">
-                                    <img src="<?=IMG?>/example/profile1.jpg" class="profile_img_set" alt="Profile picture">
+                                    <img src="<?=esc(base_url(IMG.'/example/profile1.jpg'))?>" class="profile_img_set" alt="Profile picture">
                                 </div>
                                 <div class="col-8">
                                     <p><?php echo session()->get('username')?></p>
@@ -55,7 +55,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="product">
+                            <a href="<?=esc(base_url('product'))?>">
                                 <i class="fas pr-2 fa-shopping-cart"></i>    
                                 Produk
                             </a>

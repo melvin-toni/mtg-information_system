@@ -59,7 +59,7 @@
                         <div class="row justify-content-center">
                             <div class="row footer">
                                 <p>Copyright © 2020 |</p>
-                                <a href="<?=getenv('creator.linkedin');?>" class="pl-1">
+                                <a href="<?=getenv('creator.linkedin');?>" class="pl-1 colorize">
                                     <?=getenv('creator.name');?>    
                                 </a>
                             </div>
